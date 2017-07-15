@@ -7,12 +7,9 @@
           li = message
 
   .field
-    = f.label :title
+    = f.label :title, 'Kristy open when...'
     = f.text_field :title
   .field
     = f.label :url
     = f.text_field :url
-  .field
-    = f.label :read_at
-    = f.datetime_select :read_at
   .actions = f.submit

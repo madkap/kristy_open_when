@@ -1,24 +1,23 @@
-h1 Listing links
-
 table
   thead
     tr
-      th Title
-      th Url
+      th Kristy Open When...
       th Read at
-      th
-      th
-      th
+      th colspan=4 Actions
 
   tbody
     - @links.each do |link|
       tr
         td = link.title
-        td = link.url
-        td = link.read_at
-        td = link_to 'Show', link
+        td
+          - if link.read_at.blank?
+            | ---
+          - else
+            = link.read_at
+        td = link_to 'Link', link.url
         td = link_to 'Edit', edit_link_path(link)
         td = link_to 'Destroy', link, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Reset Read Timer', ''
 
 br
 
