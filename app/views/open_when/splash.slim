@@ -1,0 +1,7 @@
+h1 Kristy, open when...
+- @links.each do |link|
+  = link_to link do
+    .title = link.title
+    - if link.read_at.present?
+      .read-at =link.read_at
+
