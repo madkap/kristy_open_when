@@ -1,6 +1,6 @@
 h1 Kristy, open when...
 - @links.each do |link|
-  = link_to link do
+  = link_to link, class:(link.read_at.present? ? 'read' : ''), data: {remote: 'true', method: 'put', params: "link[read]=true&link[id]=#{link.id}"} do
     .title = link.title
     - if link.read_at.present?
       .read-at =link.read_at

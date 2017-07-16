@@ -40,13 +40,26 @@ class LinksController < ApplicationController
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
   def update
-    respond_to do |format|
-      if @link.update(link_params)
-        format.html { redirect_to links_path, notice: 'Link was successfully updated.' }
-        format.json { render :show, status: :ok, location: @link }
-      else
-        format.html { render :edit }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+    if params[:link][:read].present?
+      @link.read_at ||= Time.now
+      respond_to do |format|
+        if @link.save
+          format.html { redirect_to @link.url, notice: 'Link was successfully updated.' }
+          format.json { render :show, status: :ok, location: @link.url }
+        else
+          format.html { render :edit }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        if @link.update(link_params)
+          format.html { redirect_to links_path, notice: 'Link was successfully updated.' }
+          format.json { render :show, status: :ok, location: @link }
+        else
+          format.html { render :edit }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
