@@ -1,7 +1,9 @@
 h1 Kristy, open when...
-- @links.each do |link|
-  = link_to link, class:(link.read_at.present? ? 'read' : ''), data: {remote: 'true', method: 'put', params: "link[read]=true&link[id]=#{link.id}"} do
-    .title = link.title
-    - if link.read_at.present?
-      .read-at = "Read #{time_ago_in_words(link.read_at)} ago"
+section.unread
+  - @unread.each do |link|
+    = render partial: 'link', locals: {link: link}
+section.read
+  -@read.each do |link|
+    = render partial: 'link', locals: {link: link}
+
 

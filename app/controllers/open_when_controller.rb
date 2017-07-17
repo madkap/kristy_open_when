@@ -1,5 +1,6 @@
 class OpenWhenController < ApplicationController
   def splash
-    @links = Link.all
+    @unread = Link.unread
+    @read = Link.read
   end
 end
