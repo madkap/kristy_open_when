@@ -14,7 +14,7 @@ table
           - if link.read_at.blank?
             | ---
           - else
-            = link.read_at
+            = formatted_timestamp(link.read_at)
         td = link_to 'Link', link.url
         td = link_to 'Edit', edit_link_path(link)
         td = link_to 'Destroy', link, data: { confirm: 'Are you sure?' }, method: :delete
