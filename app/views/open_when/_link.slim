@@ -1,4 +1,5 @@
-= link_to link, class:(link.read_at.present? ? 'read' : ''), data: {remote: 'true', method: 'put', params: "link[read]=true&link[id]=#{link.id}"} do
-  .title = link.title
-  - if link.read_at.present?
-    .read-at = "Read #{time_ago_in_words(link.read_at)} ago"
+.link style="background-image:url(#{Unsplash::Photo.random[:urls][:small]})"
+  = link_to link, class:(link.read_at.present? ? 'read' : ''), data: {remote: 'true', method: 'put', params: "link[read]=true&link[id]=#{link.id}"} do
+    .title = link.title
+    - if link.read_at.present?
+      .read-at = "Read #{time_ago_in_words(link.read_at)} ago"
