@@ -51,6 +51,17 @@ class LinksController < ApplicationController
           format.json { render json: @link.errors, status: :unprocessable_entity }
         end
       end
+    elsif params[:link][:resetread].present?
+      @link.read_at = nil
+      respond_to do |format|
+        if @link.save
+          format.html { redirect_to links_path, notice: 'Link was successfully updated.' }
+          format.json { render :show, status: :ok, location: @link }
+        else
+          format.html { render :edit }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
+        end
+      end
     else
       respond_to do |format|
         if @link.update(link_params)
