@@ -1,0 +1,14 @@
+@import 'scaffolds';
+@import 'font-size';
+@import 'breakpoint';
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  @include breakpoint(mobile) {
+    font-size: 50%;
+  }
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400');
+@import 'open_when';
