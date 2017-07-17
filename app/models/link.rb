@@ -11,6 +11,6 @@
 #
 
 class Link < ApplicationRecord
-  scope :read, -> { where.not(read_at: nil)}
-  scope :unread, -> { where(read_at: nil) }
+  scope :read, -> { where.not(read_at: nil).order('read_at desc')}
+  scope :unread, -> { where(read_at: nil).order('created_at desc') }
 end
