@@ -18,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim'
 gem 'slim-rails'
 gem 'js-routes'
-
+gem 'unsplash'
 
 group :development, :test do
   gem 'byebug', platform: :mri
