@@ -1,0 +1,19 @@
+table {
+  border-collapse :collapse;
+  text-align: left;
+  width: 100%;
+}
+td, th {
+  padding: .5rem 1rem;
+}
+th {
+  background-color: #c7c7c7;
+  border-left : 1px solid black;
+  &:first-child {
+    border: none;
+  }
+}
+
+tr {
+  border-bottom: 1px solid black;
+}
